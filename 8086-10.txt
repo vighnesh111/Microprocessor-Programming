@@ -1,0 +1,21 @@
+;WAP to find the number of negative numbers in a series of 10 numbers from 20000H. Store the result immediately after the series.
+CODE SEGMENT
+ASSUME CS: CODE
+MOV AX, 2000H
+MOV DS, AX
+MOV SI, 0000H
+MOV CX, 000AH
+MOV AH, 00H
+BACK:
+MOV AL, [SI]
+RCL AL, 01H
+JNC SKIP
+INC AH
+SKIP:
+INC SI
+LOOP BACK
+MOV [SI], AH
+INT 03H
+CODE ENDS
+END
+;(specify data in memory)

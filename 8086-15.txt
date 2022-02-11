@@ -1,0 +1,11 @@
+;WAP in assembly language for an 8086 microprocessor to find power of a number. Number and power is stored at location 4000h & 4001h respectively. Store the result at location 4002H and 4003H.
+MOV [4000H], 32H
+MOV [4001H], 02H
+MOV CL, [4001H]
+DEC CL
+MOV AL,[4000H]
+BACK1:
+MUL [4000H]
+DEC CL
+JNZ BACK1
+MOV [4002H],AX

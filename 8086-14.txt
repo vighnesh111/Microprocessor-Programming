@@ -1,0 +1,26 @@
+;Ten, 8 bit numbers are stored in the data segment. Write an 8086 based program to check whether at least one number out of these numbers matches with 20H or not. If match is found make AH =00H otherwise AH= FFH
+MOV [1000H], 11H
+MOV [1001H], 22H
+MOV [1002H], 33H
+MOV [1003H], 44H
+MOV [1004H], 55H
+MOV [1005H], 66H
+MOV [1006H], 77H
+MOV [1007H], 88H
+MOV [1008H], 98H
+MOV [1009H], 20H
+MOV AH, 00H
+MOV CL, 0AH
+MOV SI, 1000H
+BACK1:
+MOV AL, [SI]
+CMP AL, 20H
+JZ NOSKIP
+JNZ SKIP
+NOSKIP:
+MOV AH, 0FFH
+SKIP:
+INC SI
+DEC CL
+JNZ BACK1
+HLT

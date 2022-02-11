@@ -1,0 +1,29 @@
+;WAP in assembly language for an 8086 microprocessor to arrange a block of data 10 numbers in descending order.
+MOV [1000H], 11H
+MOV [1001H], 22H
+MOV [1002H], 33H
+MOV [1003H], 44H
+MOV [1004H], 55H
+MOV [1005H], 66H
+MOV [1006H], 77H
+MOV [1007H], 88H
+MOV [1008H], 98H
+MOV [1009H], 99H
+MOV CH, 09H
+BACK2:
+MOV CL, 09H
+MOV SI, 1000H
+BACK1:
+MOV AL, [SI]
+MOV AH, [SI+1H]
+CMP AL, AH
+JNC SKIP
+JZ SKIP
+MOV [SI+1H], AL
+MOV [SI], AH
+SKIP:
+INC SI
+DEC CL
+JNZ BACK1
+DEC CH
+JNZ BACK2

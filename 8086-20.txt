@@ -1,0 +1,11 @@
+;WAP to convert a packed 8 bit BCD number to unpacked BCD number
+MOV [5000H], 43H
+MOV AL, [5000H]
+MOV AH, [5000H]
+AND AL, 00FH
+MOV CL, 04H
+ROL AH, CL
+AND AH, 00FH
+MOV [5001H], AL
+MOV [5002H], AH
+;(data in 5000H and result and 5001 and 5002)

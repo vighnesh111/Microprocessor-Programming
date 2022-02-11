@@ -1,0 +1,18 @@
+;WAP to find the strength of even and odd numbers among the series of 10 numbers
+MOV CX, 0AH
+MOV BX, 4000H
+RETURN:
+MOV AL, [BX]
+INC BX
+AND AL, 01H
+CMP AL, 01H
+JNZ EVEN
+JZ ODD
+EVEN:
+INC DL
+LOOP RETURN
+INT 03H
+ODD:
+INC DH
+LOOP RETURN
+;(specify data in memory directly)

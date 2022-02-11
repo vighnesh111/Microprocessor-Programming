@@ -1,0 +1,23 @@
+;WAP to compare 7 memory locations (starting from DS:SI=0000:C000 and ES:DI=0000:D000) and store the status of the comparison for 0000:E007 memory locations.
+MOV AX, 0000H
+MOV DS, AX
+MOV SI, 0C000H
+MOV SI, 0D000H
+MOV CX, 00AH
+BACK:
+MOV Al, [SI]
+MOV BL, [DI]
+CMP AL, BL
+PUSHF
+INC SI
+INC DI
+LOOP BACK
+MOV BX, 0E007H
+MOV AX, [BX]
+MOV CX, 00AH
+BACK2:
+POP AX
+MOV [BX], AL
+DEC BX
+LOOP BACK2
+HLT

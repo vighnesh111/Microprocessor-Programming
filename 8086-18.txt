@@ -1,0 +1,15 @@
+;WAP to invert a block from location 33000H to 11000H
+;MOV AX, 3000H
+;MOV DS, AX
+;MOV AX, 1000H
+;MOV ES, AX
+MOV SI, 3000H
+MOV DI, 1009H
+MOV CX, 00AH
+RETURN:
+MOV AL, [SI]
+MOV [DI], AL
+INC SI
+DEC DI
+LOOP RETURN
+;(specify data in memory)

@@ -1,0 +1,18 @@
+WAP to add a series of 10 bytes in the memory from location 20000H to 20009H. Store the result immediately after the series
+CODE SEGMENT
+ASSUME CS: CODE
+MOV AX, 2000H
+MOV DS, AX
+MOV CX, 000AH
+MOV AX, 0000H
+BACK:
+ADD AL, [SI]
+JNC SKIP
+INC AH
+SKIP:
+INC SI
+LOOP BACK
+MOV [SI], AX
+CODE ENDS
+END
+;(specify data in memory directly)

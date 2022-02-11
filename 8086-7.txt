@@ -1,0 +1,15 @@
+;WAP to transfer a block of 10 byte from location 20000H to 30000H
+CODE SEGMENT
+ASSUME CS: CODE
+MOV AX, 2000H
+MOV DS, AX
+MOV AX, 3000H
+MOV ES, AX
+MOV SI, 0000H
+MOV DI, 0000H
+MOV CX, 000AH
+CLD
+REP MOVSB
+CODE ENDS
+END
+;(specify data in memory directly)

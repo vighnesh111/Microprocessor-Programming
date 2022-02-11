@@ -1,0 +1,8 @@
+;WAP to calculate the factorial of a number using 8086 assembly language.
+MOV AX, 05H
+MOV CX, AX
+DEC CX
+BACK:
+MUL CX
+LOOP BACK
+HLT
